@@ -6,6 +6,7 @@ var apiKey,
   token = "T1==cGFydG5lcl9pZD00NTYwNTc3MiZzaWc9MjBiMDZiOWRhOGRmZWI1Nzc1YWZkY2RjM2EwNGQ1NjY0MTIyMTFlYTpzZXNzaW9uX2lkPTFfTVg0ME5UWXdOVGMzTW41LU1UUTVORGczT0RZeU5EQTJNbjVPWWxscWRFUmxPRlJqV0dwQ1ZrMHlUbTlIVHpNd1NsUi1mZyZjcmVhdGVfdGltZT0xNDk0ODc4NzIxJm5vbmNlPTAuNzIyOTU0MTg3NDcxNjk4MyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDk1NDgzNTIw";
 var session;
 
+
 $(document).ready(function() {
   // Make an Ajax request to get the OpenTok API key, session ID, and token from the server
   initializeSession();
@@ -35,9 +36,10 @@ function initializeSession() {
         insertMode: 'append',
         width: '100%',
         height: '100%'
+      }, function(){
+        session.publish(publisher);
       });
 
-      session.publish(publisher);
     } else {
       console.log('There was an error connecting to the session: ', error.code, error.message);
     }
@@ -71,4 +73,3 @@ form.addEventListener('submit', function(event) {
       }
     });
 });
-
